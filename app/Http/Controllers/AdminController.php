@@ -14,4 +14,9 @@ class AdminController extends Controller
     {
         return view('admin');
     }
+
+    public function createPokemon()
+    {
+        return view('create-pokemon');
+    }
 }

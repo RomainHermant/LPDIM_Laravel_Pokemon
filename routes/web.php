@@ -23,5 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::get('/', 'AdminController@admin')->name('admin');
+    Route::get('/create-pokemon', 'AdminController@createPokemon')->name('create-pokemon');
+    Route::post('/create', 'PokemonController@create')->name('create');
 
 });
