@@ -24,6 +24,7 @@ class CreatePokemonTable extends Migration
             $table->integer('vitesse');
             $table->float('taille');
             $table->float('poids');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

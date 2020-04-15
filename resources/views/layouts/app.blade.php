@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{asset('storage/images/pokeball.svg')}}" width="30" height="30" class="d-inline-block align-top" alt="Pokeball"> Pokedex
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,8 +50,11 @@
                             @endif
                         @else
                             @admin
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('admin') }}">Administration</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administration</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownGestAlbum">
+                                        <a class="dropdown-item" href="{{ route('create-pokemon') }}">Ajouter un pokemon</a>
+                                    </div>
                                 </li>
                             @endadmin
                             <li class="nav-item dropdown">
