@@ -19,4 +19,9 @@ class AdminController extends Controller
     {
         return view('create-pokemon');
     }
+
+    public function createType()
+    {
+        return view('create-type');
+    }
 }

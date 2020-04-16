@@ -25,7 +25,6 @@ class PokemonController extends Controller
         $poke->image = $file->getClientOriginalName();
         $file->move('storage/images/', $file->getClientOriginalName());
 
-
         $poke->save();
 
         return redirect('/');

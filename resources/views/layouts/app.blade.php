@@ -54,6 +54,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administration</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownGestAlbum">
                                         <a class="dropdown-item" href="{{ route('create-pokemon') }}">Ajouter un pokemon</a>
+                                        <a class="dropdown-item" href="{{ route('read-type') }}">Gérer les types</a>
                                     </div>
                                 </li>
                             @endadmin
