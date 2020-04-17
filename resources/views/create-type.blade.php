@@ -7,11 +7,13 @@
             <div class="mt-5 border-top">
                 <h3 class="my-3">
                     Liste des types
-                    <a href="{{ route('delete-types') }}">
+                    @if ($data->count() < 1)
+                    <a href="{{ route('delete-types') }}" title="Supprimer tous les types.">
                         <img src="{{asset('storage/images/delete.svg')}}" alt="Supprimer" width="25" height="25">
                     </a>
+                    @endif
                 </h2>
-                @if ( !$data->count() )
+                @if ( !$data->count())
                     <div class="card">
                         <div class="card-header">Type</div>
                             <div class="card-body">
@@ -23,9 +25,16 @@
                     @foreach($data as $p)
                         <span class="px-5 py-2 rounded-pill h5 font-weight-bold mr-2" style="background: {{$p->couleur}}; color: {{$p->couleurTxt}}">
                             {{$p->libelle}}
-                            <a href="{{ route('delete-type', $p->id) }}">
+                            <a href="{{ route('delete-type', $p->id) }}" title="Supprimer." 
+                                @foreach($pokes as $pk)
+                                    @if ($p->id == $pk->type_id)
+                                        style="display:none"
+                                        @break;                           
+                                    @endif
+                                @endforeach
+                                >
                                 <img src="{{asset('storage/images/delete.svg')}}" alt="Supprimer" width="15" height="15">
-                            </a>
+                            </a>                            
                         </span>
                     @endforeach
                 </div>

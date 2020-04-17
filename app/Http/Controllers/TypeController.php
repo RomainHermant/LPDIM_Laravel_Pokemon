@@ -58,7 +58,8 @@ class TypeController extends Controller
 
     public function read() {
         $data['data'] = DB::table('types')->get();
-        return view('create-type',$data);
+        $pokes['pokes'] = DB::table('pokemon')->get();
+        return view('create-type',$data, $pokes);
     }
 
     public function delete($id) {

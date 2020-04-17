@@ -21,6 +21,10 @@ class CreateTypesTable extends Migration
             $table->timestamps();
         });
 
+        Schema::table('pokemon', function(Blueprint $table) {
+            $table->integer('type_id')->unsigned()->index();
+        });
+
     }
 
     /**

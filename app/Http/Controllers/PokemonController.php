@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pokemon;
+use App\Type;
 use DB;
 
 class PokemonController extends Controller
@@ -19,6 +20,8 @@ class PokemonController extends Controller
         $poke->vitesse = $request->post('vitesse');
         $poke->taille = $request->post('taille');
         $poke->poids = $request->post('poids');
+
+        $poke->type()->associate(Type::find($request->post('type')));
 
         $file = $request->file('image');
         $name = 

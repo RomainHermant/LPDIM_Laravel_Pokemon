@@ -6,6 +6,14 @@
         <div class="col-md-12">
             <div class="mt-5 border-top">
                 <h3 class="my-3">Ajouter un pokemon au pokedex</h2>
+                @if ( !$data->count() )
+                    <div class="card">
+                        <div class="card-header">Type</div>
+                            <div class="card-body">
+                                L'administrateur doit créer au moins un type pour pouvoir ajouter un pokemon!
+                            </div>
+                    </div>            
+                @else
                 <form action="{{route('create')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -81,9 +89,19 @@
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <label class="input-group-text" for="type">Types</label>
+                                    </div>
+                                    <select class="custom-select" id="type" name="type" required>
+                                        @foreach($data as $p)
+                                            <option class="h5 font-weight-bold" value="{{$p->id}}" style="background: {{$p->couleur}}; color: {{$p->couleurTxt}}">{{$p->libelle}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" id="image" name="image" accept=".jpg,.gif,.png,.svg,.jpeg" class="custom-file-input">
+                                        <input type="file" id="image" name="image" accept=".jpg,.gif,.png,.svg,.jpeg" class="custom-file-input" required>
                                         <label class="custom-file-label" for="customFile">Choisir un fichier</label>
                                     </div>
                                 </div>
@@ -114,6 +132,7 @@
                         })
                     })
                 </script>
+                @endif
             </div>
         </div>
     </div>

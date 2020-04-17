@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,8 @@ class AdminController extends Controller
 
     public function createPokemon()
     {
-        return view('create-pokemon');
+        $data['data'] = DB::table('types')->get();
+        return view('create-pokemon',$data);
     }
 
     public function createType()
