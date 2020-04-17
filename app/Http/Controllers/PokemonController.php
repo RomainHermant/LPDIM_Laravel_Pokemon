@@ -34,7 +34,10 @@ class PokemonController extends Controller
     }
 
     public function read() {
-        $data['data'] = DB::table('pokemon')->get();
-        return view('pokedex',$data);
+        $data = Pokemon::with(['type' => function($query) {
+            $query->select('id', 'libelle', 'couleur', 'couleurTxt');
+        }])->get();
+
+        return view('pokedex', compact('data'));
     }
 }
