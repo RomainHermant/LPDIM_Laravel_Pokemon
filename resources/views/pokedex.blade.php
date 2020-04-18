@@ -124,13 +124,14 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                      <button type="button" class="btn btn-primary">Ajouter à mon équipe</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        <a href="{{ route('ajouter-equipe', $p->id) }}">
+                                            <button type="button" class="btn btn-primary">Ajouter à mon équipe</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -147,8 +148,6 @@
                         });
                       });
                     });
-
-
                 </script>
             @endif
         </div>

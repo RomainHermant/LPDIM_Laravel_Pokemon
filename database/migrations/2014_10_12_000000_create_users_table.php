@@ -30,6 +30,14 @@ class CreateUsersTable extends Migration
             'password' => Hash::make('admin'),
             'admin' => true
         ]);
+
+        Schema::create('pokemon_user', function(Blueprint $table) {
+            $table->increments('id');
+            $table->integer('pokemon_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('pokemon_id')->references('id')->on('pokemon')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**
@@ -39,6 +47,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('pokemon_user');
         Schema::dropIfExists('users');
     }
 }

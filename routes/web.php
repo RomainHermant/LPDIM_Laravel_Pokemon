@@ -15,17 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PokemonController@read');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Routes gestion des équipes de pokemons
+Route::get('/mon-equipe', 'EquipeController@monEquipe')->name('mon-equipe');
+Route::get('/ajouter-equipe/{id}', 'EquipeController@addPokemon')->name('ajouter-equipe');
+
+
+//Groupe de routes pour les administrateurs
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::get('/', 'AdminController@admin')->name('admin');
 
+    //Routes création d'un pokemon
     Route::get('/create-pokemon', 'AdminController@createPokemon')->name('create-pokemon');
     Route::post('/create', 'PokemonController@create')->name('create');
 
+    //Route gestion des types
     Route::get('/create-type', 'AdminController@createType')->name('create-type');
     Route::get('/read-type', 'TypeController@read')->name('read-type');
     Route::post('/new-type', 'TypeController@create')->name('new-type');

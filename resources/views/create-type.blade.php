@@ -7,7 +7,7 @@
             <div class="mt-5 border-top">
                 <h3 class="my-3">
                     Liste des types
-                    @if ($data->count() < 1)
+                    @if ($pokes->count() < 1)
                     <a href="{{ route('delete-types') }}" title="Supprimer tous les types.">
                         <img src="{{asset('storage/images/delete.svg')}}" alt="Supprimer" width="25" height="25">
                     </a>

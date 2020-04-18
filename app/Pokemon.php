@@ -10,4 +10,8 @@ class Pokemon extends Model
     {
         return $this->belongsTo('App\Type');
     }
+
+    public function users() {
+        return $this->belongsToMany('App\User');
+    }
 }

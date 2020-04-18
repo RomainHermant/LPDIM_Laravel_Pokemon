@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function isAdmin()    {        
         return $this->admin == true;    
     }
+
+    public function pokemons() {
+        return $this->belongsToMany('App\Pokemon');
+    }
 }
