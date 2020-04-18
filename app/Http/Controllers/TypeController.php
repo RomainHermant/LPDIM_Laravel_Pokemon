@@ -12,11 +12,19 @@ class TypeController extends Controller
     public function create(Request $request) {
         $type = new Type();
 
-        $type->libelle = $request->post('nom');
-        $type->couleur = $request->post('couleur');
-        $type->couleurTxt = $request->post('couleur-txt');
-
-        $type->save();
+        $data = DB::table('types')->get();
+        $in_table = false;
+        foreach ($data as $d) {
+            if (ucfirst($request->post('nom')) == $d->libelle) {
+                $in_table = true;
+            }
+        }
+        if (!$in_table) {
+            $type->libelle = ucfirst($request->post('nom'));
+            $type->couleur = $request->post('couleur');
+            $type->couleurTxt = $request->post('couleur-txt');
+            $type->save();
+        }
 
         return redirect('/admin/read-type');
     }
@@ -46,11 +54,22 @@ class TypeController extends Controller
         foreach ($types as $t) {
             $type = new Type();
         
-            $type->libelle = ucfirst($t['nom']);
-            $type->couleur = $t['couleur'];
-            $type->couleurTxt = 'white';
+            $data = DB::table('types')->get();
+            $in_table = false;
 
-            $type->save();
+            foreach ($data as $d) {
+                if (ucfirst($t['nom']) == $d->libelle) {
+                    $in_table = true;
+                }
+            }
+
+            if (!$in_table) {
+                $type->libelle = ucfirst($t['nom']);
+                $type->couleur = $t['couleur'];
+                $type->couleurTxt = 'white';
+    
+                $type->save();
+            }
         }
 
         return redirect('/admin/read-type');

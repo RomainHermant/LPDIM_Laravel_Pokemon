@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Routes gestion des équipes de pokemons
 Route::get('/mon-equipe', 'EquipeController@monEquipe')->name('mon-equipe');
 Route::get('/ajouter-equipe/{id}', 'EquipeController@addPokemon')->name('ajouter-equipe');
+Route::get('/supprimer-equipe/{id}', 'EquipeController@deletePokemon')->name('supprimer-equipe');
 
 
 //Groupe de routes pour les administrateurs

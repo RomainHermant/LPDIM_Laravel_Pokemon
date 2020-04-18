@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pokemon;
 use App\Type;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class PokemonController extends Controller
@@ -37,7 +39,7 @@ class PokemonController extends Controller
         $data = Pokemon::with(['type' => function($query) {
             $query->select('id', 'libelle', 'couleur', 'couleurTxt');
         }])->get();
-
-        return view('pokedex', compact('data'));
+        $user = User::find(Auth::id());
+        return view('pokedex', compact('data', 'user'));
     }
 }
