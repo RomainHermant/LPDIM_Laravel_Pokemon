@@ -3,9 +3,12 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-4">
+            <img src="{{asset('storage/images/logo.svg')}}" alt="Dresseur" class="img-thumbnail" width="125" height="125">                                
+        </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Accéder à son espace de dresseur pokemon') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

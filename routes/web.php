@@ -41,5 +41,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::get('/delete-type/{id}', 'TypeController@delete')->name('delete-type');
     Route::get('/delete-type', 'TypeController@deleteAll')->name('delete-types');
 
+    //Gestion des utilisateurs
+    Route::get('/utilisateurs', 'UserController@utilisateurs')->name('utilisateurs');
+    Route::get('/utilisateur-equipe/{id}', 'EquipeController@utilisateurEquipe')->name('utilisateur-equipe');
+    Route::get('/supprimer-pokemon-utilisateur/{idUser}/{idPoke}', 'EquipeController@deletePokeUser')->name('supprimer-pokemon-utilisateur');
+    Route::get('/modif-role/{id}/{role}', 'UserController@updateRole')->name('modif-role');
 
 });

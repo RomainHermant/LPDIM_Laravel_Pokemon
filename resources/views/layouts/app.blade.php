@@ -43,11 +43,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
@@ -58,7 +58,7 @@
                                         <a class="dropdown-item" href="{{ route('create-pokemon') }}">Ajouter un pokemon</a>
                                         <a class="dropdown-item" href="{{ route('read-type') }}">Gérer les types</a>
                                         <a class="dropdown-item" href="{{ route('read-type') }}">Gérer le pokedex</a>
-                                        <a class="dropdown-item" href="{{ route('read-type') }}">Gérer les utilisateurs</a>
+                                        <a class="dropdown-item" href="{{ route('utilisateurs') }}">Gérer les utilisateurs</a>
                                     </div>
                                 </li>
                             @endadmin

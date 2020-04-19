@@ -45,7 +45,7 @@
                                     @endif
                                 </th>
                                 <th class="align-middle" scope="row">No.{{$p->id}}</th>
-                                <td class="align-middle" style="">{{$p->nom}}</td>
+                                <td class="align-middle">{{$p->nom}}</td>
                                 <td class="align-middle">{{$p->pv}}</td>
                                 <td class="align-middle">
                                     @if ($p->type)

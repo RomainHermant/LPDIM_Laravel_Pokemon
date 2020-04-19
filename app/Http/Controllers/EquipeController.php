@@ -38,4 +38,16 @@ class EquipeController extends Controller
         $pokemon->users()->detach([Auth::id()]);
         return redirect('/mon-equipe');
     }
+
+    public function utilisateurEquipe($id) {
+
+        $user = User::find($id);
+        return view('user-equipe-content', compact('user'));
+    }
+
+    public function deletePokeUser($idUser, $idPoke) {
+        $pokemon = Pokemon::find($idPoke);
+        $pokemon->users()->detach($idUser);
+        return redirect('/admin/utilisateurs');
+    }
 }
