@@ -67,7 +67,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="taille">Taille (en mètres) :</label>
-                                <input type="number" value="1.0" step="0.1" min="0" class="form-control" id="taille" name="taille" required>
+                                <input type="number" value="1.0" step="0.1" min="0.1" class="form-control" id="taille" name="taille" required>
                             </div>
                         </div>
                         <div class="col">

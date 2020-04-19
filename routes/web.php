@@ -50,6 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     //Gestion des pokemons du pokedex
     Route::get('/pokemons', 'PokemonController@admin')->name('pokemons');
     Route::get('/delete-pokemon/{id}', 'PokemonController@delete')->name('delete-pokemon');
+    Route::post('/update/{id}', 'PokemonController@update')->name('update');
 
 
 });

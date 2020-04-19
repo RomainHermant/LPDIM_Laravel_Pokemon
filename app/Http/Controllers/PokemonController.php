@@ -63,4 +63,22 @@ class PokemonController extends Controller
     
         return redirect('/admin/pokemons');
     }
+
+    public function update(Request $request, $id) {
+        
+        $poke = Pokemon::find($id);
+        
+        $poke->pv = $request->post('pv');
+        $poke->attaque = $request->post('attaque');
+        $poke->defense = $request->post('defense');
+        $poke->attaque_spe = $request->post('attaque_spe');
+        $poke->defense_spe = $request->post('defense_spe');
+        $poke->vitesse = $request->post('vitesse');
+        $poke->taille = $request->post('taille');
+        $poke->poids = $request->post('poids');
+
+        $poke->save();
+
+        return redirect('/admin/pokemons');
+    }
 }
