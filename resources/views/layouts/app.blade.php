@@ -55,10 +55,18 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Administration</a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownGestAlbum">
-                                        <a class="dropdown-item" href="{{ route('create-pokemon') }}">Ajouter un pokemon</a>
-                                        <a class="dropdown-item" href="{{ route('read-type') }}">Gérer les types</a>
-                                        <a class="dropdown-item" href="{{ route('read-type') }}">Gérer le pokedex</a>
-                                        <a class="dropdown-item" href="{{ route('utilisateurs') }}">Gérer les utilisateurs</a>
+                                        <a class="dropdown-item" href="{{ route('create-pokemon') }}">
+                                            <img src="{{asset('storage/images/egg.svg')}}" alt="Oeufs" width="15" height="15"> Ajouter un pokemon
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('read-type') }}">
+                                            <img src="{{asset('storage/images/type.svg')}}" alt="Tornade" width="15" height="15"> Gérer les types
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('read-type') }}">
+                                            <img src="{{asset('storage/images/pokedex.svg')}}" alt="Pokedex" width="15" height="15"> Gérer le pokedex
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('utilisateurs') }}">
+                                            <img src="{{asset('storage/images/dresseur.svg')}}" alt="Utilisateur" width="15" height="15"> Gérer les utilisateurs
+                                        </a>
                                     </div>
                                 </li>
                             @endadmin
@@ -68,11 +76,17 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('mon-equipe') }}">Mon équipe</a>
+                                    <a class="dropdown-item" href="{{ route('mon-equipe') }}">
+                                        <img src="{{asset('storage/images/sac.svg')}}" alt="Déconnexion icon" width="15" height="15"> Mon équipe
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('pokedex') }}">
+                                        <img src="{{asset('storage/images/pokedex.svg')}}" alt="Pokedex" width="15" height="15"> Pokedex
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <img src="{{asset('storage/images/logout.svg')}}" alt="Déconnexion icon" width="15" height="15"> 
                                         {{ __('Déconnexion') }}
                                     </a>
 

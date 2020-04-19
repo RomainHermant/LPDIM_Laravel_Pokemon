@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PokemonController@read');
+Route::get('/', 'PokemonController@read')->name('pokedex');
 
 Auth::routes();
 
