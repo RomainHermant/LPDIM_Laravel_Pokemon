@@ -61,7 +61,7 @@
                                         <a class="dropdown-item" href="{{ route('read-type') }}">
                                             <img src="{{asset('storage/images/type.svg')}}" alt="Tornade" width="15" height="15"> Gérer les types
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('read-type') }}">
+                                        <a class="dropdown-item" href="{{ route('pokemons') }}">
                                             <img src="{{asset('storage/images/pokedex.svg')}}" alt="Pokedex" width="15" height="15"> Gérer le pokedex
                                         </a>
                                         <a class="dropdown-item" href="{{ route('utilisateurs') }}">

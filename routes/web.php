@@ -47,4 +47,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function(){
     Route::get('/supprimer-pokemon-utilisateur/{idUser}/{idPoke}', 'EquipeController@deletePokeUser')->name('supprimer-pokemon-utilisateur');
     Route::get('/modif-role/{id}/{role}', 'UserController@updateRole')->name('modif-role');
 
+    //Gestion des pokemons du pokedex
+    Route::get('/pokemons', 'PokemonController@admin')->name('pokemons');
+    Route::get('/delete-pokemon/{id}', 'PokemonController@delete')->name('delete-pokemon');
+
+
 });

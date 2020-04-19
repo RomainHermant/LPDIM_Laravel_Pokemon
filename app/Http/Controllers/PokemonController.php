@@ -42,4 +42,25 @@ class PokemonController extends Controller
         $user = User::find(Auth::id());
         return view('pokedex', compact('data', 'user'));
     }
+
+    public function admin() {
+        $data = Pokemon::with(['type' => function($query) {
+            $query->select('id', 'libelle', 'couleur', 'couleurTxt');
+        }])->get();
+        return view('/pokedex-admin', compact('data'));
+    }
+
+    public function delete($id) {
+        $pokemon = Pokemon::find($id);
+        foreach (User::all() as $u) {
+            $pokemon->users()->detach($u->id);
+        }
+
+        $delete = Pokemon::where('id', $id)->get();
+        foreach($delete as $d) {
+            $d->delete();
+        }
+    
+        return redirect('/admin/pokemons');
+    }
 }
