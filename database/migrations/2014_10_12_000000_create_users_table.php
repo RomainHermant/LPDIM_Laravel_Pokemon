@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\User;
 
 class CreateUsersTable extends Migration
 {
@@ -24,11 +25,11 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert([
+        User::create([
             'name' => 'admin',
-            'email' => 'admin@admin.com',
+            'email' => 'admin@admin.fr',
             'password' => Hash::make('admin'),
-            'admin' => true
+            'admin' => true,
         ]);
 
         Schema::create('pokemon_user', function(Blueprint $table) {
